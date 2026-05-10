@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Dashboard - PDW</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slow-pan {
+            from { background-position: 0% 50%; }
+            to { background-position: 100% 50%; }
+        }
+        .animate-slow-pan {
+            background-size: 200% 200%;
+            animation: slow-pan 15s linear infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] min-h-screen flex items-center justify-center p-6 antialiased text-slate-200 animate-slow-pan bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
+
+    <div class="relative group w-full max-w-md">
+        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-yellow-900 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        
+        <div class="relative bg-[#1e293b] p-10 rounded-3xl border border-slate-700 shadow-2xl text-center">
+            
+            <div class="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#0f172a] border border-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.1)]">
+                <span class="text-3xl">🏛️</span>
+            </div>
+
+            <h1 class="text-3xl font-serif italic font-bold text-amber-400 tracking-tighter mb-2">
+                Central Dashboard
+            </h1>
+            <p class="text-slate-400 text-sm tracking-[0.2em] uppercase mb-10">Praktikum Design Web</p>
+
+            <div class="space-y-4">
+                <a href="form.html" class="group flex items-center justify-between bg-[#0f172a] border border-slate-700 p-4 rounded-2xl hover:border-amber-500/50 transition-all duration-500 hover:bg-[#16213e]">
+                    <div class="flex items-center gap-4 text-left">
+                        <span class="bg-slate-800 p-2 rounded-lg text-amber-500">📝</span>
+                        <div>
+                            <p class="text-sm font-bold text-slate-200 uppercase tracking-wide">Registry Form</p>
+                            <p class="text-xs text-slate-500">Biodata & Kota Asal</p>
+                        </div>
+                    </div>
+                    <span class="text-slate-600 group-hover:text-amber-500 transition-transform group-hover:translate-x-1">→</span>
+                </a>
+
+                <a href="about_me.html" class="group flex items-center justify-between bg-[#0f172a] border border-slate-700 p-4 rounded-2xl hover:border-amber-500/50 transition-all duration-500 hover:bg-[#16213e]">
+                    <div class="flex items-center gap-4 text-left">
+                        <span class="bg-slate-800 p-2 rounded-lg text-amber-500">👤</span>
+                        <div>
+                            <p class="text-sm font-bold text-slate-200 uppercase tracking-wide">Profile Vault</p>
+                            <p class="text-xs text-slate-500">Tentang Saya & Hobi</p>
+                        </div>
+                    </div>
+                    <span class="text-slate-600 group-hover:text-amber-500 transition-transform group-hover:translate-x-1">→</span>
+                </a>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-800/50">
+                <p class="text-[10px] text-slate-600 tracking-[0.3em] uppercase">User Authentication: Alfito Dinofa</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
