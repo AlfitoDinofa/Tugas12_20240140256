@@ -1,0 +1,115 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Exclusive - Midnight Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        
+        /* Efek Shimmer untuk tombol */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        .shimmer:hover::after {
+            left: 120%;
+            top: 120%;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] min-h-screen flex flex-col items-center justify-center p-6 antialiased text-slate-200">
+
+    <div class="bg-[#1e293b] p-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full max-w-lg border border-slate-700 animate-fade-in">
+        
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-serif italic font-bold text-amber-400 tracking-wider">
+                Biodata
+            </h2>
+            <div class="h-1 w-20 bg-amber-500 mx-auto mt-2 rounded-full opacity-50"></div>
+        </div>
+        
+        <form id="formMahasiswa" class="space-y-6">
+            <div class="space-y-1">
+                <label class="text-xs uppercase tracking-widest text-slate-400 font-bold ml-1">Nama Lengkap</label>
+                <input type="text" id="nama" class="w-full bg-[#0f172a] border border-slate-700 rounded-xl p-3 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all duration-300 placeholder-slate-600" placeholder="Masukkan nama anda...">
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-xs uppercase tracking-widest text-slate-400 font-bold ml-1">Tanggal Lahir</label>
+                <input type="date" id="tanggal" class="w-full bg-[#0f172a] border border-slate-700 rounded-xl p-3 text-slate-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all duration-300 [color-scheme:dark]">
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-xs uppercase tracking-widest text-slate-400 font-bold ml-1">Kota Asal</label>
+                <select id="kota" class="w-full bg-[#0f172a] border border-slate-700 rounded-xl p-3 text-slate-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none transition-all duration-300 appearance-none">
+                    <option value="" class="bg-[#1e293b]">Pilih Destinasi</option>
+                    <option value="Yogyakarta" class="bg-[#1e293b]">Yogyakarta</option>
+                    <option value="Semarang" class="bg-[#1e293b]">Semarang</option>
+                    <option value="Bandung" class="bg-[#1e293b]">Bandung</option>
+                    <option value="Jakarta" class="bg-[#1e293b]">Jakarta</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="prosesData()" class="shimmer w-full bg-gradient-to-tr from-amber-600 to-amber-400 hover:from-amber-500 hover:to-amber-300 text-[#0f172a] font-black py-4 rounded-xl shadow-lg transform transition active:scale-95 tracking-widest uppercase text-sm mt-4">
+                Validate & Submit
+            </button>
+        </form>
+
+        <div id="displayArea" class="mt-10 p-6 bg-[#0f172a]/50 border border-amber-900/30 rounded-2xl hidden opacity-0 transition-opacity duration-700">
+            <h3 class="text-amber-400 font-bold mb-4 flex items-center gap-2">
+                <span class="h-2 w-2 bg-amber-500 rounded-full animate-pulse"></span>
+                Confirmed Registry
+            </h3>
+            <div class="space-y-2 text-sm tracking-wide text-slate-300 border-l border-amber-800 pl-4">
+                <p id="outNama"></p>
+                <p id="outTanggal"></p>
+                <p id="outKota"></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="mt-8 text-slate-500 hover:text-amber-400 transition-colors text-sm tracking-widest uppercase flex items-center gap-2">
+        <span>←</span> Back to Dashboard
+    </a>
+
+    <script>
+        function prosesData() {
+            const nama = document.getElementById('nama').value;
+            const tgl = document.getElementById('tanggal').value;
+            const kota = document.getElementById('kota').value;
+            const area = document.getElementById('displayArea');
+
+            if(!nama || !tgl || !kota) {
+                alert("Please complete the information.");
+                return;
+            }
+
+            area.classList.remove('hidden');
+            setTimeout(() => area.classList.add('opacity-100'), 50);
+
+            document.getElementById('outNama').innerHTML = "<span class='text-slate-500'>NAME:</span> " + nama.toUpperCase();
+            document.getElementById('outTanggal').innerHTML = "<span class='text-slate-500'>DATE:</span> " + tgl;
+            document.getElementById('outKota').innerHTML = "<span class='text-slate-500'>ORIGIN:</span> " + kota.toUpperCase();
+        }
+    </script>
+</body>
+</html>
